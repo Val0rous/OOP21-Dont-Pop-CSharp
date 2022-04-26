@@ -20,11 +20,11 @@ using namespace DontPop
         private readonly List<AbstractGameObject> _powerups;	//to change in PowerUpObject
         private readonly List<AbstractGameObject> _destroyQueue;
 
-        private static readonly Int32 _TIME_CONST_60_HZ_MS = 1000 / 60;
-        private static readonly Double _START_X = 0.5;
-        private static readonly Double _START_Y = 0.5;
-        private static readonly Double _SCORE_POS_X = 0.5;
-        private static readonly Double _SCORE_POS_Y = 0.5;
+        private static readonly Int32 s_TIME_CONST_60_HZ_MS = 1000 / 60;
+        private static readonly Double s_START_X = 0.5;
+        private static readonly Double s_START_Y = 0.5;
+        private static readonly Double s_SCORE_POS_X = 0.5;
+        private static readonly Double s_SCORE_POS_Y = 0.5;
 
         private Boolean _hasShield;
         private Boolean _hasMultiplier;
