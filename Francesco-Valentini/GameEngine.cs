@@ -2,34 +2,34 @@ using System;
 
 using namespace DontPop
 {
-    class GameEngine
+    public class GameEngine
     {
         //<must write>
         //[optional]
         //(alternative1 | alternative2)
 
-        private Double gameTime;
-        private readonly PlayerObj player;
-        private readonly SpawnManager spawnManager;
-        private readonly AudioManager audioManager;
-        private readonly ScoreCalc scoreCalc;
-        private readonly GameScene gameScene;
-        private readonly GameApplication application;
-        private readonly ScoreDisplayObj scoreDisplay;			//score overlay
-        private readonly List<AbstractGameObject> enemies;
-        private readonly List<AbstractGameObject> powerups;	//to change in PowerUpObject
-        private readonly List<AbstractGameObject> destroyQueue;
+        private Double _gameTime;
+        private readonly PlayerObj _player;
+        private readonly SpawnManager _spawnManager;
+        private readonly AudioManager _audioManager;
+        private readonly ScoreCalc _scoreCalc;
+        private readonly GameScene _gameScene;
+        private readonly GameApplication _application;
+        private readonly ScoreDisplayObj _scoreDisplay;			//score overlay
+        private readonly List<AbstractGameObject> _enemies;
+        private readonly List<AbstractGameObject> _powerups;	//to change in PowerUpObject
+        private readonly List<AbstractGameObject> _destroyQueue;
 
-        private static readonly Int32 TIME_CONST_60_HZ_MS = 1000 / 60;
-        private static readonly Double START_X = 0.5;
-        private static readonly Double START_Y = 0.5;
-        private static readonly Double SCORE_POS_X = 0.5;
-        private static readonly Double SCORE_POS_Y = 0.5;
+        private static readonly Int32 _TIME_CONST_60_HZ_MS = 1000 / 60;
+        private static readonly Double _START_X = 0.5;
+        private static readonly Double _START_Y = 0.5;
+        private static readonly Double _SCORE_POS_X = 0.5;
+        private static readonly Double _SCORE_POS_Y = 0.5;
 
-        private Boolean hasShield;
-        private Boolean hasMultiplier;
-        private Boolean executeLoop;
+        private Boolean _hasShield;
+        private Boolean _hasMultiplier;
+        private Boolean _executeLoop;
 
-        private Double deltaTime;
+        private Double _deltaTime;
     }
 }
