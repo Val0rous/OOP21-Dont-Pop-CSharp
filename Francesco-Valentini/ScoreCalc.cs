@@ -1,6 +1,6 @@
 using System;
 
-namespace DontPop
+namespace Francesco_Valentini
 {
     public class ScoreCalc
     {
@@ -11,129 +11,108 @@ namespace DontPop
         private Double _frameCounter;
         private static readonly Double s_MULTIPLIER_TIME = 5;
         private static readonly Int32 s_POINTS_PER_SECOND = 15;
-        private static readonly Double s_SECONDS_PER_POINT = 1 / (Double) _POINTS_PER_SECOND;
+        private static readonly Double s_SECONDS_PER_POINT = 1 / (Double) s_POINTS_PER_SECOND;
         private static readonly Int32 s_MULTIPLIER_2X = 2;
 
         private Boolean _hasMultiplier;
 
-        private readonly List<Runnable> _onMultiplierEndList = new ArrayList<>();
-        private readonly List<Runnable> _onMultiplierStartList = new ArrayList<>();
-
         public ScoreCalc()
         {
-            _multiplier = 1;
-            SetCalcStatus(false);
+            this._multiplier = 1;
+            this.SetCalcStatus(false);
         }
 
         public Int32 GetScore()
         {
-            return _score;
+            return this._score;
         }
 
         public Boolean IsCalculable()
         {
-            return _calcStatus;
+            return this._calcStatus;
         }
 
         public void SetCalcStatus(Boolean status)
         {
-            _calcStatus = status;
+            this._calcStatus = status;
         }
 
         public void IncScore(Int32 deltaScore)
         {
-            _score += deltaScore * GetMultiplier();
+            this._score += deltaScore * this.GetMultiplier();
         }
 
         private void ManageMultiplierTime(Double deltaTime)
         {
-            if (!_hasMultiplier)
+            if (!this._hasMultiplier)
             {
                 return;
             }
-            if (GetMultiplierTime() > 0)
+            if (this.GetMultiplierTime() > 0)
             {
-                DecMultiplierTime(deltaTime);
+                this.DecMultiplierTime(deltaTime);
             }
             else
             {
-                ResetMultiplier();
+                this.ResetMultiplier();
             }
         }
 
         public void CalculateScore(Double deltaTime)
         {
-            if (IsCalculable())
+            if (this.IsCalculable())
             {
-                _frameCounter += deltaTime;
-                if (GetFrameCounter() >= s_SECONDS_PER_POINT)
+                this._frameCounter += deltaTime;
+                if (this.GetFrameCounter() >= s_SECONDS_PER_POINT)
                 {
-                    IncScore(1);
-                    ResetFrameCounter();
+                    this.IncScore(1);
+                    this.ResetFrameCounter();
                 }
-                ManageMultiplierTime(deltaTime);
+                this.ManageMultiplierTime(deltaTime);
             }
         }
 
         public Int32 GetMultiplier()
         {
-            return _multiplier;
+            return this._multiplier;
         }
 
         public void SetMultiplier(Int32 multiplier)
         {
-            _multiplier = multiplier;
-            _multiplierTime = s_MULTIPLIER_TIME;
-            _hasMultiplier = true;
-            foreach (var item in _onMultiplierStartList)
-            {
-                item.Run();
-            }
+            this._multiplier = multiplier;
+            this._multiplierTime = s_MULTIPLIER_TIME;
+            this._hasMultiplier = true;
         }
 
         public void SetMultiplier()
         {
-            SetMultiplier(s_MULTIPLIER_2X);
+            this.SetMultiplier(s_MULTIPLIER_2X);
         }
 
         public void ResetMultiplier()
         {
-            _multiplier = 1;
-            _hasMultiplier = false;
-            foreach (var item in _onMultiplierEndList)
-            {
-                item.Run();
-            }
+            this._multiplier = 1;
+            this._hasMultiplier = false;
         }
 
         public Double GetMultiplierTime()
         {
-            return _multiplierTime;
+            return this._multiplierTime;
         }
 
         public void DecMultiplierTime(Double decrement)
         {
-            _multiplierTime -= decrement;
+            this._multiplierTime -= decrement;
         }
 
         private Double GetFrameCounter()
         {
-            return _frameCounter;
+            return this._frameCounter;
         }
 
         private void ResetFrameCounter()
         {
-            _frameCounter -= s_SECONDS_PER_POINT;
-        }
-
-        public void OnMultiplierStart(Runnable action)
-        {
-            _onMultiplierStartList.Add(action);
-        }
-
-        public void OnMultiplierEnd(Runnable action)
-        {
-            _onMultiplierEndList.add(action);
+            this._frameCounter -= s_SECONDS_PER_POINT;
         }
     }
 }

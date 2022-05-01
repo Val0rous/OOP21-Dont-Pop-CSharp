@@ -1,55 +1,58 @@
 using System;
+using System.Collections.Generic;
 
-namespace DontPop
+namespace Francesco_Valentini
 {
     public class ScoreManager
     {
         private Int32 _score;
         private String _playerName;
         private readonly Leaderboard _leaderboard;
-        private readonly GameApplication _application;
         private Boolean _readOnly;
 
-        public ScoreManager(String playerName, Int32 score, Leaderboard leaderboard, GameApplication application)
+        public ScoreManager(String playerName, Int32 score, Leaderboard leaderboard)
         {
-            _score = score;
-            _playerName = playerName;
-            _leaderboard = leaderboard;
-            _application = application;
+            this._score = score;
+            this._playerName = playerName;
+            this._leaderboard = leaderboard;
 
-            _leaderboard.Load();
-            _leaderboard.AddToRanking(_playerName, _score);
+            this._leaderboard.Load();
+            this._leaderboard.AddToRanking(_playerName, _score);
 
-            _leaderboard.Save();
+            this._leaderboard.Save();
         }
 
-        public ScoreManager(Leaderboard leaderboard, GameApplication application)
+        public ScoreManager(Leaderboard leaderboard)
         {
-            _readOnly = true;
-            _leaderboard = leaderboard;
-            _application = application;
+            this._readOnly = true;
+            this._leaderboard = leaderboard;
 
-            _leaderboard.Load();
+            this._leaderboard.Load();
         }
 
         public List<Pair<String, Int32>> GetRanking()
         {
-            return _leaderboard.GetRanking();
+            return this._leaderboard.GetRanking();
         }
 
         public String GetPlayerName()
         {
-            return _playerName;
+            return this._playerName;
         }
 
         public Int32 GetScore()
         {
-            return _score;
+            return this._score;
         }
 
         public String GetRank()
         {
-            return _leaderboard.GetRank(GetPlayerName(), GetScore()).ToString();
+            return this._leaderboard.GetRank(GetPlayerName(), GetScore()).ToString();
+        }
+
+        public bool IsReadOnly()
+        {
+            return this._readOnly;
         }
     }
 }

@@ -1,33 +1,33 @@
 using System;
 
-namespace DontPop
+namespace Francesco_Valentini
 {
     public class RankItem
     {
-        private readonly String _rank;
-        private readonly String _name;
-        private readonly Integer _score;
+        private readonly string _rank;
+        private readonly string _name;
+        private readonly int _score;
 
-        public RankItem (String rank, String name, Int32 score)
+        public RankItem (string rank, string name, int score)
         {
-            _rank = rank;
-            _name = name;
-            _score = score;
+            this._rank = rank;
+            this._name = name;
+            this._score = score;
         }
 
         public String GetRank()
         {
-            return _rank;
+            return this._rank;
         }
 
         public String GetName()
         {
-            return _name;
+            return this._name;
         }
 
         public Int32 GetScore()
         {
-            return _score;
+            return this._score;
         }
     }
 }
