@@ -10,8 +10,8 @@ namespace Francesco_Valentini
     /// </summary>
     public class Leaderboard
     {
-        private const Int32 RankingLength = 50;
-        private List<Pair<String, Int32>> _ranking = new List<Pair<string, Int32>>();
+        private const int RankingLength = 50;
+        private List<Pair<string, int>> _ranking = new List<Pair<string, int>>();
 
         /// <summary>
         /// Builds a new object of class Leaderboard.
@@ -25,7 +25,7 @@ namespace Francesco_Valentini
         /// Gets a copy of current ranking.
         /// </summary>
         /// <returns>current ranking</returns>
-        public List<Pair<String, Int32>> GetRanking()
+        public List<Pair<string, int>> GetRanking()
         {
             var copy = this._ranking;
             return copy;
@@ -36,9 +36,9 @@ namespace Francesco_Valentini
         /// </summary>
         /// <param name="playerName"></param>
         /// <param name="score"></param>
-        public void AddToRanking(String playerName, Int32 score)
+        public void AddToRanking(string playerName, int score)
         {
-            var entry = new Pair<String, Int32>(playerName, score);
+            var entry = new Pair<string, int>(playerName, score);
             if (this._ranking.Count.Equals(0))
             {
                 this._ranking.Add(entry);
@@ -69,7 +69,7 @@ namespace Francesco_Valentini
         /// <param name="playerName"></param>
         /// <param name="score"></param>
         /// <returns></returns>
-        public Int32 GetRank(String playerName, Int32 score)
+        public int GetRank(string playerName, int score)
         {
             for (int i = 0; i < this._ranking.Count; i++)
             {

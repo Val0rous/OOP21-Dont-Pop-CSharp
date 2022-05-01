@@ -39,7 +39,7 @@ namespace Francesco_Valentini
         /// Returns a hash code value for the object.
         /// </summary>
         /// <returns>a hash code for this Pair</returns>
-        public override Int32 GetHashCode()
+        public override int GetHashCode()
         {
             return base.GetHashCode();
         }
@@ -49,7 +49,7 @@ namespace Francesco_Valentini
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>true if the two pairs are the same</returns>
-        public override Boolean Equals(Object obj)
+        public override bool Equals(object obj)
         {
             if (this == obj)
             {
@@ -72,6 +72,6 @@ namespace Francesco_Valentini
         /// Creates a string representation for this object.
         /// </summary>
         /// <returns>a string representation of this Pair</returns>
-        public override String ToString() => "Pair [e1=" + this._e1 + ", e2=" + this._e2 + "]";
+        public override string ToString() => "Pair [e1=" + this._e1 + ", e2=" + this._e2 + "]";
     }
 }
