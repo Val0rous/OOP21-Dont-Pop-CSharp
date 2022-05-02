@@ -81,21 +81,5 @@ namespace Francesco_Valentini
             }
             return this._ranking.Count;
         }
-
-        /// <summary>
-        /// Loads ranking saved in the savefile.
-        /// </summary>
-        public void Load()
-        {
-
-        }
-
-        /// <summary>
-        /// Saves current ranking in the savefile.
-        /// </summary>
-        public void Save()
-        {
-
-        }
     }
 }

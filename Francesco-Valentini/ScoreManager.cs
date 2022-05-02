@@ -26,10 +26,7 @@ namespace Francesco_Valentini
             this._playerName = playerName;
             this._leaderboard = leaderboard;
 
-            this._leaderboard.Load();
             this._leaderboard.AddToRanking(_playerName, _score);
-
-            this._leaderboard.Save();
         }
 
         /// <summary>
@@ -40,8 +37,6 @@ namespace Francesco_Valentini
         {
             this._readOnly = true;
             this._leaderboard = leaderboard;
-
-            this._leaderboard.Load();
         }
 
         /// <summary>
