@@ -10,25 +10,26 @@ namespace Francesco_Valentini
     /// </summary>
     public class Leaderboard
     {
+        /// <summary>
+        /// Maximum number of elements to be stored in ranking list.
+        /// </summary>
         private const int RankingLength = 50;
-        private List<Pair<string, int>> _ranking = new List<Pair<string, int>>();
+
+        /// <summary>
+        /// Current ranking, stored as a list.
+        /// </summary>
+        public List<Pair<string, int>> Ranking
+        {
+            get => new List<Pair<string, int>>(this.Ranking);
+            private set { }
+        }
 
         /// <summary>
         /// Builds a new object of class Leaderboard.
         /// </summary>
         public Leaderboard()
         {
-
-        }
-
-        /// <summary>
-        /// Gets a copy of current ranking.
-        /// </summary>
-        /// <returns>current ranking</returns>
-        public List<Pair<string, int>> GetRanking()
-        {
-            var copy = this._ranking;
-            return copy;
+            this.Ranking = new List<Pair<string, int>>();
         }
 
         /// <summary>
@@ -39,26 +40,26 @@ namespace Francesco_Valentini
         public void AddToRanking(string playerName, int score)
         {
             var entry = new Pair<string, int>(playerName, score);
-            if (this._ranking.Count.Equals(0))
+            if (this.Ranking.Count.Equals(0))
             {
-                this._ranking.Add(entry);
+                this.Ranking.Add(entry);
             }
             else
             {
                 int index = 0;
-                while (index < this._ranking.Count)
+                while (index < this.Ranking.Count)
                 {
-                    if (score > this._ranking[index].Get2())
+                    if (score > this.Ranking[index].e2)
                     {
                         break;
                     }
                     index++;
                 }
-                this._ranking.Insert(index, entry);
+                this.Ranking.Insert(index, entry);
 
-                if (this._ranking.Count > RankingLength)
+                if (this.Ranking.Count > RankingLength)
                 {
-                    this._ranking.RemoveAt(this._ranking.Count - 1);
+                    this.Ranking.RemoveAt(this.Ranking.Count - 1);
                 }
             }
         }
@@ -68,18 +69,18 @@ namespace Francesco_Valentini
         /// </summary>
         /// <param name="playerName"></param>
         /// <param name="score"></param>
-        /// <returns></returns>
+        /// <returns>rank position of player, starting from 1</returns>
         public int GetRank(string playerName, int score)
         {
-            for (int i = 0; i < this._ranking.Count; i++)
+            for (int i = 0; i < this.Ranking.Count; i++)
             {
-                if (this._ranking[i].Get1().Equals(playerName)
-                    && this._ranking[i].Get2().Equals(score))
+                if (this.Ranking[i].e1.Equals(playerName)
+                    && this.Ranking[i].e2.Equals(score))
                 {
                     return i + 1;
                 }
             }
-            return this._ranking.Count;
+            return this.Ranking.Count;
         }
     }
 }

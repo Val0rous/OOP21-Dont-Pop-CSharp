@@ -9,10 +9,10 @@ namespace Francesco_Valentini
     /// </summary>
     public class ScoreManager
     {
-        private int _score;
-        private string _playerName;
+        public int Score { get; }
+        public string PlayerName { get; }
+        public bool ReadOnly { get; private set; }
         private readonly Leaderboard _leaderboard;
-        private bool _readOnly;
 
         /// <summary>
         /// Creates & initializes this class.
@@ -22,11 +22,11 @@ namespace Francesco_Valentini
         /// <param name="leaderboard"></param>
         public ScoreManager(string playerName, int score, Leaderboard leaderboard)
         {
-            this._score = score;
-            this._playerName = playerName;
+            this.Score = score;
+            this.PlayerName = playerName;
             this._leaderboard = leaderboard;
 
-            this._leaderboard.AddToRanking(_playerName, _score);
+            this._leaderboard.AddToRanking(PlayerName, Score);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Francesco_Valentini
         /// <param name="leaderboard"></param>
         public ScoreManager(Leaderboard leaderboard)
         {
-            this._readOnly = true;
+            this.ReadOnly = true;
             this._leaderboard = leaderboard;
         }
 
@@ -43,30 +43,12 @@ namespace Francesco_Valentini
         /// Gets a copy of the ranking list inside Leaderboard.
         /// </summary>
         /// <returns>current ranking</returns>
-        public List<Pair<string, int>> GetRanking() => this._leaderboard.GetRanking();
-
-        /// <summary>
-        /// Gets current player name.
-        /// </summary>
-        /// <returns>player name</returns>
-        public string GetPlayerName() => this._playerName;
+        public List<Pair<string, int>> GetRanking() => this._leaderboard.Ranking;
 
         /// <summary>
         /// Gets current player's rank (at gameover).
         /// </summary>
         /// <returns>rank</returns>
-        public int GetScore() => this._score;
-
-        /// <summary>
-        /// Gets current player's rank (at gameover).
-        /// </summary>
-        /// <returns>rank</returns>
-        public int GetRank() => this._leaderboard.GetRank(this.GetPlayerName(), this.GetScore());
-
-        /// <summary>
-        /// Checks whether the leaderboard should be read-only or not.
-        /// </summary>
-        /// <returns>true if read-only, false if leaderboard shall be edited</returns>
-        public bool IsReadOnly() => this._readOnly;
+        public int GetRank() => this._leaderboard.GetRank(this.PlayerName, this.Score);
     }
 }

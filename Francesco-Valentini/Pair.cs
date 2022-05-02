@@ -9,8 +9,8 @@ namespace Francesco_Valentini
     /// <typeparam name="E2"></typeparam>
     public class Pair<E1, E2>
     {
-        private readonly E1 _e1;
-        private readonly E2 _e2;
+        public E1 e1 { get; }
+        public E2 e2 { get; }
 
         /// <summary>
         /// Builds a pair of two elements.
@@ -19,21 +19,9 @@ namespace Francesco_Valentini
         /// <param name="e2"></param>
         public Pair(E1 e1, E2 e2)
         {
-            this._e1 = e1;
-            this._e2 = e2;
+            this.e1 = e1;
+            this.e2 = e2;
         }
-
-        /// <summary>
-        /// Gets the first element.
-        /// </summary>
-        /// <returns>e1</returns>
-        public E1 Get1() => this._e1;
-
-        /// <summary>
-        /// Gets the second element.
-        /// </summary>
-        /// <returns>e2</returns>
-        public E2 Get2() => this._e2;
 
         /// <summary>
         /// Returns a hash code value for the object.
@@ -61,14 +49,14 @@ namespace Francesco_Valentini
                 return false;
             }
             Pair<E1, E2> other = (Pair<E1, E2>) obj;
-            return Object.Equals(this._e1, other._e1)
-                    && Object.Equals(this._e2, other._e2);
+            return Object.Equals(this.e1, other.e1)
+                    && Object.Equals(this.e2, other.e2);
         }
 
         /// <summary>
         /// Creates a string representation for this object.
         /// </summary>
         /// <returns>a string representation of this Pair</returns>
-        public override string ToString() => "Pair [e1=" + this._e1 + ", e2=" + this._e2 + "]";
+        public override string ToString() => "Pair [e1=" + this.e1 + ", e2=" + this.e2 + "]";
     }
 }

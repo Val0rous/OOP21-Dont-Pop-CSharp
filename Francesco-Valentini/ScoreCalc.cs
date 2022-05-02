@@ -8,9 +8,9 @@ namespace Francesco_Valentini
     /// </summary>
     public class ScoreCalc
     {
-        private int _score;
-        private bool _calcStatus;
-        private int _multiplier;
+        public int Score { get; private set; }
+        public bool CalcStatus { get; set; }
+        public int Multiplier { get; private set; }
         private double _multiplierTime;
         private double _frameCounter;
         private static readonly double s_MULTIPLIER_TIME = 5;   //five seconds of multiplier
@@ -25,33 +25,15 @@ namespace Francesco_Valentini
         /// </summary>
         public ScoreCalc()
         {
-            this._multiplier = 1;
-            this.SetCalcStatus(false);
+            this.Multiplier = 1;
+            this.CalcStatus = false;
         }
-
-        /// <summary>
-        /// Gets current score.
-        /// </summary>
-        /// <returns>score</returns>
-        public int GetScore() => this._score;
-
-        /// <summary>
-        /// Gets current calc status: if true, the score shall be calculated.
-        /// </summary>
-        /// <returns>calc status</returns>
-        public bool IsCalculable() => this._calcStatus;
-
-        /// <summary>
-        /// Sets whether ScoreCalc shall calculate the score (true) or not (false).
-        /// </summary>
-        /// <param name="status"></param>
-        public void SetCalcStatus(bool status) => this._calcStatus = status;
 
         /// <summary>
         /// Increments score by an arbitrary amount, while still abiding by multiplier rules.
         /// </summary>
         /// <param name="deltaScore"></param>
-        public void IncScore(int deltaScore) => this._score += deltaScore * this.GetMultiplier();
+        public void IncScore(int deltaScore) => this.Score += deltaScore * this.Multiplier;
 
         /// <summary>
         /// Manages multiplier time, decreasing it until it reaches 0.
@@ -63,7 +45,7 @@ namespace Francesco_Valentini
             {
                 return;
             }
-            if (this.GetMultiplierTime() > 0)
+            if (this._multiplierTime > 0)
             {
                 this.DecMultiplierTime(deltaTime);
             }
@@ -79,10 +61,10 @@ namespace Francesco_Valentini
         /// <param name="deltaTime"></param>
         public void CalculateScore(double deltaTime)
         {
-            if (this.IsCalculable())
+            if (this.CalcStatus)
             {
                 this._frameCounter += deltaTime;
-                if (this.GetFrameCounter() >= s_SECONDS_PER_POINT)
+                if (this._frameCounter >= s_SECONDS_PER_POINT)
                 {
                     this.IncScore(1);
                     this.ResetFrameCounter();
@@ -92,18 +74,12 @@ namespace Francesco_Valentini
         }
 
         /// <summary>
-        /// Gets current value of multiplier.
-        /// </summary>
-        /// <returns>multiplier</returns>
-        public int GetMultiplier() => this._multiplier;
-
-        /// <summary>
         /// Sets multiplier to any value.
         /// </summary>
         /// <param name="multiplier"></param>
         public void SetMultiplier(int multiplier)
         {
-            this._multiplier = multiplier;
+            this.Multiplier = multiplier;
             this._multiplierTime = s_MULTIPLIER_TIME;
             this._hasMultiplier = true;
         }
@@ -119,28 +95,16 @@ namespace Francesco_Valentini
         /// </summary>
         public void ResetMultiplier()
         {
-            this._multiplier = 1;
+            this.Multiplier = 1;
             this._multiplierTime = 0;
             this._hasMultiplier = false;
         }
-
-        /// <summary>
-        /// Gets remaining multiplier time.
-        /// </summary>
-        /// <returns>multiplier time</returns>
-        private double GetMultiplierTime() => this._multiplierTime;
 
         /// <summary>
         /// Decreases multiplier time by an arbitrary amount.
         /// </summary>
         /// <param name="decrement"></param>
         private void DecMultiplierTime(double decrement) => this._multiplierTime -= decrement;
-
-        /// <summary>
-        /// Gets current frame counter.
-        /// </summary>
-        /// <returns>frame counter</returns>
-        private double GetFrameCounter() => this._frameCounter;
 
         /// <summary>
         /// Resets frame counter.
