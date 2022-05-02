@@ -9,7 +9,14 @@ namespace Francesco_Valentini
     /// <typeparam name="E2"></typeparam>
     public class Pair<E1, E2>
     {
+        /// <summary>
+        /// First element of Pair.
+        /// </summary>
         public E1 e1 { get; }
+
+        /// <summary>
+        /// Second element of Pair.
+        /// </summary>
         public E2 e2 { get; }
 
         /// <summary>

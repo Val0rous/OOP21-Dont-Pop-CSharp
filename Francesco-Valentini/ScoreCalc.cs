@@ -8,9 +8,22 @@ namespace Francesco_Valentini
     /// </summary>
     public class ScoreCalc
     {
+        /// <summary>
+        /// Current player score.
+        /// </summary>
         public int Score { get; private set; }
+
+        /// <summary>
+        /// Calculation status: true if score can be calculated, false otherwise.
+        /// </summary>
         public bool CalcStatus { get; set; }
+
+        /// <summary>
+        /// Current multiplier value.
+        /// Score increment will be multiplied by its value.
+        /// </summary>
         public int Multiplier { get; private set; }
+
         private double _multiplierTime;
         private double _frameCounter;
         private static readonly double s_MULTIPLIER_TIME = 5;   //five seconds of multiplier

@@ -9,9 +9,22 @@ namespace Francesco_Valentini
     /// </summary>
     public class ScoreManager
     {
+        /// <summary>
+        /// Player score (at gameover).
+        /// </summary>
         public int Score { get; }
+
+        /// <summary>
+        /// Current player's name.
+        /// </summary>
         public string PlayerName { get; }
+
+        /// <summary>
+        /// Read only status: if true, leaderboard ranking will not be modified.
+        /// If false, the ScoreManager is able to edit the leaderboard ranking.
+        /// </summary>
         public bool ReadOnly { get; private set; }
+
         private readonly Leaderboard _leaderboard;
 
         /// <summary>
