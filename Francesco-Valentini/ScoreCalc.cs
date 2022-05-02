@@ -33,37 +33,25 @@ namespace Francesco_Valentini
         /// Gets current score.
         /// </summary>
         /// <returns>score</returns>
-        public int GetScore()
-        {
-            return this._score;
-        }
+        public int GetScore() => this._score;
 
         /// <summary>
         /// Gets current calc status: if true, the score shall be calculated.
         /// </summary>
         /// <returns>calc status</returns>
-        public bool IsCalculable()
-        {
-            return this._calcStatus;
-        }
+        public bool IsCalculable() => this._calcStatus;
 
         /// <summary>
         /// Sets whether ScoreCalc shall calculate the score (true) or not (false).
         /// </summary>
         /// <param name="status"></param>
-        public void SetCalcStatus(bool status)
-        {
-            this._calcStatus = status;
-        }
+        public void SetCalcStatus(bool status) => this._calcStatus = status;
 
         /// <summary>
         /// Increments score by an arbitrary amount, while still abiding by multiplier rules.
         /// </summary>
         /// <param name="deltaScore"></param>
-        public void IncScore(int deltaScore)
-        {
-            this._score += deltaScore * this.GetMultiplier();
-        }
+        public void IncScore(int deltaScore) => this._score += deltaScore * this.GetMultiplier();
 
         /// <summary>
         /// Manages multiplier time, decreasing it until it reaches 0.
@@ -107,10 +95,7 @@ namespace Francesco_Valentini
         /// Gets current value of multiplier.
         /// </summary>
         /// <returns>multiplier</returns>
-        public int GetMultiplier()
-        {
-            return this._multiplier;
-        }
+        public int GetMultiplier() => this._multiplier;
 
         /// <summary>
         /// Sets multiplier to any value.
@@ -127,10 +112,7 @@ namespace Francesco_Valentini
         /// Sets multiplier to default value (2x).
         /// Useful when you don't want to specify the value of the multiplier.
         /// </summary>
-        public void SetMultiplier()
-        {
-            this.SetMultiplier(s_MULTIPLIER_2X);
-        }
+        public void SetMultiplier() => this.SetMultiplier(s_MULTIPLIER_2X);
 
         /// <summary>
         /// Resets multiplier back to 1.
@@ -146,35 +128,23 @@ namespace Francesco_Valentini
         /// Gets remaining multiplier time.
         /// </summary>
         /// <returns>multiplier time</returns>
-        private double GetMultiplierTime()
-        {
-            return this._multiplierTime;
-        }
+        private double GetMultiplierTime() => this._multiplierTime;
 
         /// <summary>
         /// Decreases multiplier time by an arbitrary amount.
         /// </summary>
         /// <param name="decrement"></param>
-        private void DecMultiplierTime(double decrement)
-        {
-            this._multiplierTime -= decrement;
-        }
+        private void DecMultiplierTime(double decrement) => this._multiplierTime -= decrement;
 
         /// <summary>
         /// Gets current frame counter.
         /// </summary>
         /// <returns>frame counter</returns>
-        private double GetFrameCounter()
-        {
-            return this._frameCounter;
-        }
+        private double GetFrameCounter() => this._frameCounter;
 
         /// <summary>
         /// Resets frame counter.
         /// </summary>
-        private void ResetFrameCounter()
-        {
-            this._frameCounter -= s_SECONDS_PER_POINT;
-        }
+        private void ResetFrameCounter() => this._frameCounter -= s_SECONDS_PER_POINT;
     }
 }

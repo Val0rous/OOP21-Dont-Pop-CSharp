@@ -43,45 +43,30 @@ namespace Francesco_Valentini
         /// Gets a copy of the ranking list inside Leaderboard.
         /// </summary>
         /// <returns>current ranking</returns>
-        public List<Pair<string, int>> GetRanking()
-        {
-            return this._leaderboard.GetRanking();
-        }
+        public List<Pair<string, int>> GetRanking() => this._leaderboard.GetRanking();
 
         /// <summary>
         /// Gets current player name.
         /// </summary>
         /// <returns>player name</returns>
-        public string GetPlayerName()
-        {
-            return this._playerName;
-        }
+        public string GetPlayerName() => this._playerName;
 
         /// <summary>
         /// Gets current player's rank (at gameover).
         /// </summary>
         /// <returns>rank</returns>
-        public int GetScore()
-        {
-            return this._score;
-        }
+        public int GetScore() => this._score;
 
         /// <summary>
         /// Gets current player's rank (at gameover).
         /// </summary>
         /// <returns>rank</returns>
-        public int GetRank()
-        {
-            return this._leaderboard.GetRank(this.GetPlayerName(), this.GetScore());
-        }
+        public int GetRank() => this._leaderboard.GetRank(this.GetPlayerName(), this.GetScore());
 
         /// <summary>
         /// Checks whether the leaderboard should be read-only or not.
         /// </summary>
         /// <returns>true if read-only, false if leaderboard shall be edited</returns>
-        public bool IsReadOnly()
-        {
-            return this._readOnly;
-        }
+        public bool IsReadOnly() => this._readOnly;
     }
 }

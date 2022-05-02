@@ -28,27 +28,18 @@ namespace Francesco_Valentini
         /// Gets rank of current entry.
         /// </summary>
         /// <returns>rank</returns>
-        public int GetRank()
-        {
-            return this._rank;
-        }
+        public int GetRank() => this._rank;
 
         /// <summary>
         /// Gets name of current entry.
         /// </summary>
         /// <returns>name</returns>
-        public string GetName()
-        {
-            return this._name;
-        }
+        public string GetName() => this._name;
 
         /// <summary>
         /// Gets score of current entry.
         /// </summary>
         /// <returns>score</returns>
-        public int GetScore()
-        {
-            return this._score;
-        }
+        public int GetScore() => this._score;
     }
 }

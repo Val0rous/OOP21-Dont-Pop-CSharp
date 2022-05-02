@@ -39,10 +39,7 @@ namespace Francesco_Valentini
         /// Returns a hash code value for the object.
         /// </summary>
         /// <returns>a hash code for this Pair</returns>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
 
         /// <summary>
         /// Checks if two pairs are equal to one another.
