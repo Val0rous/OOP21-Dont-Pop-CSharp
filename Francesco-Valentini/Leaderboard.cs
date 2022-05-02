@@ -18,11 +18,7 @@ namespace Francesco_Valentini
         /// <summary>
         /// Current ranking, stored as a list.
         /// </summary>
-        public List<Pair<string, int>> Ranking
-        {
-            get => new List<Pair<string, int>>(this.Ranking);
-            private set { }
-        }
+        public List<Pair<string, int>> Ranking { get => new List<Pair<string, int>>(this.Ranking); private set { } }
 
         /// <summary>
         /// Builds a new object of class Leaderboard.
