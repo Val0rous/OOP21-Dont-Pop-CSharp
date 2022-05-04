@@ -27,6 +27,8 @@ namespace Michele_Ravaioli
 
         public override string ToString() => $"({X}, {Y})";
 
+        public override int GetHashCode() => base.GetHashCode();
+
         public override bool Equals(object obj)
         {
             if (obj is Point2D)
