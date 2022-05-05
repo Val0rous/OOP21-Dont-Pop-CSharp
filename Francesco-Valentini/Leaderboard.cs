@@ -18,7 +18,7 @@ namespace Francesco_Valentini
         /// <summary>
         /// Current ranking, stored as a list.
         /// </summary>
-        public List<Pair<string, int>> Ranking { get => new List<Pair<string, int>>(this.Ranking); private set { } }
+        public List<Pair<string, int>> Ranking { get; }
 
         /// <summary>
         /// Builds a new object of class Leaderboard.
@@ -42,7 +42,7 @@ namespace Francesco_Valentini
             }
             else
             {
-                int index = 0;
+                var index = 0;
                 while (index < this.Ranking.Count)
                 {
                     if (score > this.Ranking[index].e2)

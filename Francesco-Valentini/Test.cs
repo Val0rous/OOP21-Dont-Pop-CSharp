@@ -6,26 +6,37 @@ namespace Francesco_Valentini
 {
     public class Test
     {
-        Leaderboard leaderboard = new Leaderboard();
-        List<Pair<string, int>> list = new List<Pair<string, int>>();
+        private Leaderboard InitLeaderboard()
+        {
+            var leaderboard = new Leaderboard();
+            leaderboard.AddToRanking("Fifth", 30);
+            leaderboard.AddToRanking("Third", 60);
+            leaderboard.AddToRanking("Second", 75);
+            leaderboard.AddToRanking("Fourth", 45);
+            leaderboard.AddToRanking("First", 90);
+
+            return leaderboard;
+        }
+        
+        private List<Pair<string, int>> InitList()
+        {
+            var list = new List<Pair<string, int>>();
+            list.Add(new Pair<string, int>("First", 90));
+            list.Add(new Pair<string, int>("Second", 75));
+            list.Add(new Pair<string, int>("Third", 60));
+            list.Add(new Pair<string, int>("Fourth", 45));
+            list.Add(new Pair<string, int>("Fifth", 30));
+
+            return list;
+        }
 
         [Test]
         public void TestLeaderboard()
         {
-            this.leaderboard.AddToRanking("Fifth", 30);
-            this.leaderboard.AddToRanking("Third", 60);
-            this.leaderboard.AddToRanking("Second", 75);
-            this.leaderboard.AddToRanking("Fourth", 45);
-            this.leaderboard.AddToRanking("First", 90);
+            var leaderboard = InitLeaderboard();
+            var list = InitList();
+            CollectionAssert.AreEqual(leaderboard.Ranking, list);
             
-            this.list.Add(new Pair<string, int>("First", 90));
-            this.list.Add(new Pair<string, int>("Second", 75));
-            this.list.Add(new Pair<string, int>("Third", 60));
-            this.list.Add(new Pair<string, int>("Fourth", 45));
-            this.list.Add(new Pair<string, int>("Fifth", 30));
-
-            Assert.AreEqual(leaderboard.Ranking, list);
-
             Assert.AreEqual(leaderboard.GetRank("First", 90), 1);
             Assert.AreEqual(leaderboard.GetRank("Second", 75), 2);
             Assert.AreEqual(leaderboard.GetRank("Third", 60), 3);
@@ -36,10 +47,12 @@ namespace Francesco_Valentini
         [Test]
         public void TestPair()
         {
-            var pair = new Pair<String, Int32>("Lol", 5);
+            var pair = new Pair<string, int>("Lol", 5);
             Assert.AreEqual(pair.e1, "Lol");
             Assert.AreEqual(pair.e2, 5);
-            Assert.IsTrue(pair.Equals(pair));
+
+            var pair2 = new Pair<string, int>("Lol", 5);
+            Assert.IsTrue(pair.Equals(pair2));
             Assert.AreEqual(pair.ToString(), "Pair [e1=Lol, e2=5]");
         }
 
@@ -94,19 +107,29 @@ namespace Francesco_Valentini
         [Test]
         public void TestScoreManager()
         {
+            var leaderboard = InitLeaderboard();
+            var list = InitList();
+            
             //editMode="TRUE"
-            var scoreManager = new ScoreManager("Sixth", 15, this.leaderboard);
-            this.list.Add(new Pair<string, int>("Sixth", 15));
-            Assert.AreEqual(scoreManager.GetRanking(), this.list);
+            var scoreManager = new ScoreManager("Sixth", 15, leaderboard);
+            list.Add(new Pair<string, int>("Sixth", 15));
+            Assert.AreEqual(scoreManager.GetRanking(), list);
             Assert.IsFalse(scoreManager.ReadOnly);
             Assert.AreEqual(scoreManager.PlayerName, "Sixth");
             Assert.AreEqual(scoreManager.Score, 15);
             Assert.AreEqual(scoreManager.GetRank(), 6);
+        }
 
+        [Test]
+        public void TestScoreManagerReadOnly()
+        {
+            var leaderboard = InitLeaderboard();
+            var list = InitList();
+            
             //editMode="FALSE"
-            var scoreManagerRO = new ScoreManager(this.leaderboard);    //read-only
-            Assert.AreEqual(scoreManagerRO.GetRanking(), this.list);
-            Assert.IsTrue(scoreManagerRO.ReadOnly);
+            var scoreManager = new ScoreManager(leaderboard);    //read-only
+            Assert.AreEqual(scoreManager.GetRanking(), list);
+            Assert.IsTrue(scoreManager.ReadOnly);
         }
     }
 }
