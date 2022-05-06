@@ -32,11 +32,11 @@ namespace Manuel_Tartagni
         /// <returns>true if the two number are the equals</returns>
         public override bool Equals(object num)
         {
-           if (num == null)
+            if (num == null)
             {
                 return false;
             }
-            else if ( num is int)
+            else if (num is int)
             {
                 int n = (int)num;
                 if (this.RandomInt2 == n)
@@ -52,7 +52,7 @@ namespace Manuel_Tartagni
             {
                 return false;
             }
-  
+
         }
 
         /// <summary>
@@ -68,5 +68,5 @@ namespace Manuel_Tartagni
         public override int GetHashCode() => base.GetHashCode();
 
     }
-    
+
 }
