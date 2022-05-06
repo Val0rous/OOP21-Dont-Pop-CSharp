@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Francesco_Valentini
@@ -7,7 +6,7 @@ namespace Francesco_Valentini
     /// Edits table values.
     public class ScoreManager
     {
-        /// Player score (at gameover).
+        /// Player score (at game over).
         public int Score { get; }
 
         /// Current player's name.
@@ -28,7 +27,6 @@ namespace Francesco_Valentini
             this.Score = score;
             this.PlayerName = playerName;
             this._leaderboard = leaderboard;
-
             this._leaderboard.AddToRanking(PlayerName, Score);
         }
 
@@ -44,7 +42,7 @@ namespace Francesco_Valentini
         /// <returns>current ranking list</returns>
         public List<Pair<string, int>> GetRanking() => this._leaderboard.Ranking;
 
-        /// Gets current player's rank (at gameover).
+        /// Gets current player's rank (at game over).
         /// <returns>current player rank</returns>
         public int GetRank() => this._leaderboard.GetRank(this.PlayerName, this.Score);
     }

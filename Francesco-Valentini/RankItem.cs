@@ -1,10 +1,6 @@
-using System;
-
 namespace Francesco_Valentini
 {
-    /// <summary>
     /// Useful class to keep all infos about a rank entry in the ScoreScene table.
-    /// </summary>
     public class RankItem
     {
         /// Player rank.

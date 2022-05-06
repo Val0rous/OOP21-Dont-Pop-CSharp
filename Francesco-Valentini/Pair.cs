@@ -39,11 +39,11 @@ namespace Francesco_Valentini
             {
                 return false;
             }
-            if (GetType() != obj.GetType())
+            if (this.GetType() != obj.GetType())
             {
                 return false;
             }
-            Pair<E1, E2> other = (Pair<E1, E2>) obj;
+            var other = (Pair<E1, E2>) obj;
             return Object.Equals(this.e1, other.e1)
                     && Object.Equals(this.e2, other.e2);
         }

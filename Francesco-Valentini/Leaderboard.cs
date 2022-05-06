@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Francesco_Valentini
 {
@@ -56,7 +54,7 @@ namespace Francesco_Valentini
         /// <returns>rank position of player, starting from 1</returns>
         public int GetRank(string playerName, int score)
         {
-            for (int i = 0; i < this.Ranking.Count; i++)
+            for (var i = 0; i < this.Ranking.Count; i++)
             {
                 if (this.Ranking[i].e1.Equals(playerName)
                     && this.Ranking[i].e2.Equals(score))

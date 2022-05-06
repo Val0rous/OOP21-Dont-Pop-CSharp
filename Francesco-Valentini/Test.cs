@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 
 namespace Francesco_Valentini
@@ -37,32 +36,32 @@ namespace Francesco_Valentini
         {
             CollectionAssert.AreEqual(this._leaderboard.Ranking, this._list);
             
-            Assert.AreEqual(this._leaderboard.GetRank("First", 90), 1);
-            Assert.AreEqual(this._leaderboard.GetRank("Second", 75), 2);
-            Assert.AreEqual(this._leaderboard.GetRank("Third", 60), 3);
-            Assert.AreEqual(this._leaderboard.GetRank("Fourth", 45), 4);
-            Assert.AreEqual(this._leaderboard.GetRank("Fifth", 30), 5);
+            Assert.AreEqual(1, this._leaderboard.GetRank("First", 90));
+            Assert.AreEqual(2, this._leaderboard.GetRank("Second", 75));
+            Assert.AreEqual(3, this._leaderboard.GetRank("Third", 60));
+            Assert.AreEqual(4, this._leaderboard.GetRank("Fourth", 45));
+            Assert.AreEqual(5, this._leaderboard.GetRank("Fifth", 30));
         }
 
         [Test]
         public void TestPair()
         {
             var pair = new Pair<string, int>("Lol", 5);
-            Assert.AreEqual(pair.e1, "Lol");
-            Assert.AreEqual(pair.e2, 5);
+            Assert.AreEqual("Lol", pair.e1);
+            Assert.AreEqual(5, pair.e2);
 
             var pair2 = new Pair<string, int>("Lol", 5);
             Assert.IsTrue(pair.Equals(pair2));
-            Assert.AreEqual(pair.ToString(), "Pair [e1=Lol, e2=5]");
+            Assert.AreEqual("Pair [e1=Lol, e2=5]", pair.ToString());
         }
 
         [Test]
         public void TestRankItem()
         {
             var rankItem = new RankItem(7, "Hello World", 420);
-            Assert.AreEqual(rankItem.Rank, 7);
-            Assert.AreEqual(rankItem.Name, "Hello World");
-            Assert.AreEqual(rankItem.Score, 420);
+            Assert.AreEqual(7, rankItem.Rank);
+            Assert.AreEqual("Hello World", rankItem.Name);
+            Assert.AreEqual(420, rankItem.Score);
         }
 
         [Test]
@@ -70,38 +69,38 @@ namespace Francesco_Valentini
         {
             var scoreCalc = new ScoreCalc();
             Assert.IsFalse(scoreCalc.CalcStatus);
-            Assert.AreEqual(scoreCalc.Score, 0);
+            Assert.AreEqual(0, scoreCalc.Score);
 
             scoreCalc.CalcStatus = true;
             Assert.IsTrue(scoreCalc.CalcStatus);
-            Assert.AreEqual(scoreCalc.Score, 0);
+            Assert.AreEqual(0, scoreCalc.Score);
 
             scoreCalc.CalculateScore(0.06666667);
-            Assert.AreEqual(scoreCalc.Score, 1);
+            Assert.AreEqual(1, scoreCalc.Score);
 
             scoreCalc.CalculateScore(0.06666667);
-            Assert.AreEqual(scoreCalc.Score, 2);
+            Assert.AreEqual(2, scoreCalc.Score);
 
             scoreCalc.IncScore(8);
-            Assert.AreEqual(scoreCalc.Score, 10);
+            Assert.AreEqual(10, scoreCalc.Score);
 
-            Assert.AreEqual(scoreCalc.Multiplier, 1);
+            Assert.AreEqual(1, scoreCalc.Multiplier);
             scoreCalc.SetMultiplier();
-            Assert.AreEqual(scoreCalc.Multiplier, 2);
+            Assert.AreEqual(2, scoreCalc.Multiplier);
             scoreCalc.CalculateScore(0.06666667);
-            Assert.AreEqual(scoreCalc.Score, 12);
+            Assert.AreEqual(12, scoreCalc.Score);
             scoreCalc.IncScore(2);
-            Assert.AreEqual(scoreCalc.Score, 16);
+            Assert.AreEqual(16, scoreCalc.Score);
 
             scoreCalc.SetMultiplier(3);
-            Assert.AreEqual(scoreCalc.Multiplier, 3);
+            Assert.AreEqual(3, scoreCalc.Multiplier);
             scoreCalc.CalculateScore(0.06666667);
-            Assert.AreEqual(scoreCalc.Score, 19);
+            Assert.AreEqual(19, scoreCalc.Score);
             scoreCalc.IncScore(2);
-            Assert.AreEqual(scoreCalc.Score, 25);
+            Assert.AreEqual(25, scoreCalc.Score);
 
             scoreCalc.ResetMultiplier();
-            Assert.AreEqual(scoreCalc.Multiplier, 1);
+            Assert.AreEqual(1, scoreCalc.Multiplier);
         }
 
         [Test]
@@ -110,11 +109,11 @@ namespace Francesco_Valentini
             //editMode="TRUE"
             var scoreManager = new ScoreManager("Sixth", 15, this._leaderboard);
             this._list.Add(new Pair<string, int>("Sixth", 15));
-            Assert.AreEqual(scoreManager.GetRanking(), this._list);
+            Assert.AreEqual(this._list, scoreManager.GetRanking());
             Assert.IsFalse(scoreManager.ReadOnly);
-            Assert.AreEqual(scoreManager.PlayerName, "Sixth");
-            Assert.AreEqual(scoreManager.Score, 15);
-            Assert.AreEqual(scoreManager.GetRank(), 6);
+            Assert.AreEqual("Sixth", scoreManager.PlayerName);
+            Assert.AreEqual(15, scoreManager.Score);
+            Assert.AreEqual(6, scoreManager.GetRank());
         }
 
         [Test]
@@ -122,7 +121,7 @@ namespace Francesco_Valentini
         {
             //editMode="FALSE"
             var scoreManager = new ScoreManager(this._leaderboard);    //read-only
-            Assert.AreEqual(scoreManager.GetRanking(), this._list);
+            Assert.AreEqual(this._list, scoreManager.GetRanking());
             Assert.IsTrue(scoreManager.ReadOnly);
         }
     }

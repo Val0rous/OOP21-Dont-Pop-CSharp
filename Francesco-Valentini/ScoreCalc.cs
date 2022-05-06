@@ -1,8 +1,6 @@
-using System;
-
 namespace Francesco_Valentini
 {
-    /// Manages final score, that will be displayed both during gameplay and after gameover.
+    /// Manages final score, that will be displayed both during gameplay and after game over.
     /// Differs from ScoreManager, which manages GUI-related aspects of score displaying.
     public class ScoreCalc
     {
@@ -16,14 +14,13 @@ namespace Francesco_Valentini
         /// Score increment will be multiplied by its value.
         public int Multiplier { get; private set; }
 
+        private bool _hasMultiplier;
         private double _multiplierTime;
         private double _frameCounter;
-        private static readonly double s_MULTIPLIER_TIME = 5;   //five seconds of multiplier
-        private static readonly int s_POINTS_PER_SECOND = 15;
-        private static readonly double s_SECONDS_PER_POINT = 1 / (double) s_POINTS_PER_SECOND;
-        private static readonly int s_MULTIPLIER_2X = 2;
-
-        private bool _hasMultiplier;
+        private const double MultiplierTime = 5;   //five seconds of multiplier
+        private const int PointsPerSecond = 15;
+        private const double SecondsPerPoint = 1 / (double) PointsPerSecond;
+        private const int Multiplier2X = 2;
 
         /// Creates class and sets multiplier to 1 by default.
         public ScoreCalc()
@@ -61,7 +58,7 @@ namespace Francesco_Valentini
             if (this.CalcStatus)
             {
                 this._frameCounter += deltaTime;
-                if (this._frameCounter >= s_SECONDS_PER_POINT)
+                if (this._frameCounter >= SecondsPerPoint)
                 {
                     this.IncScore(1);
                     this.ResetFrameCounter();
@@ -75,13 +72,13 @@ namespace Francesco_Valentini
         public void SetMultiplier(int multiplier)
         {
             this.Multiplier = multiplier;
-            this._multiplierTime = s_MULTIPLIER_TIME;
+            this._multiplierTime = MultiplierTime;
             this._hasMultiplier = true;
         }
 
         /// Sets multiplier to default value (2x).
         /// Useful when you don't want to specify the value of the multiplier.
-        public void SetMultiplier() => this.SetMultiplier(s_MULTIPLIER_2X);
+        public void SetMultiplier() => this.SetMultiplier(Multiplier2X);
 
         /// Resets multiplier back to 1.
         public void ResetMultiplier()
@@ -96,6 +93,6 @@ namespace Francesco_Valentini
         private void DecMultiplierTime(double decrement) => this._multiplierTime -= decrement;
 
         /// Resets frame counter.
-        private void ResetFrameCounter() => this._frameCounter -= s_SECONDS_PER_POINT;
+        private void ResetFrameCounter() => this._frameCounter -= SecondsPerPoint;
     }
 }
