@@ -40,13 +40,13 @@ namespace Manuel_Tartagni
         /// Gets a spawn side for thornBalls.
         /// </summary>
         /// <returns>new Point2D</returns>
-        public int getThornballRandomSide() => 1 + (new RandomInt().GetRandomInt(0, 1) * 2);   //1 o 3
+        public int GetThornballRandomSide() => 1 + (new RandomInt().GetRandomInt(0, 1) * 2);   //1 o 3
 
         /// <summary>
         /// Gets a spawn side for enemies and power-ups.
         /// </summary>
         /// <returns>new side for spawn</returns>
-        public int getRandomSide()
+        public int GetRandomSide()
         {
             RandomInt randomInt = new RandomInt();
             int side = randomInt.GetRandomInt(1, 4);
@@ -60,11 +60,11 @@ namespace Manuel_Tartagni
         /// </summary>
         /// <param name="side">side of a thornball's  spawn</param>
         /// <returns>new Point2D for thornbal's spawn</returns>
-        public Point2D getThornballSpawnPoint(int side)
+        public Point2D GetThornballSpawnPoint(int side)
         {
 
             RandomInt randomInt = new RandomInt();
-            int sideOfSpawn = this.getThornballRandomSide();
+            int sideOfSpawn = this.GetThornballRandomSide();
             double randomNumber = randomInt.GetRandomInt(1, 100) / 100;
             if (sideOfSpawn ==  (int) SideOfSpawn.WEST)
             {
@@ -82,7 +82,7 @@ namespace Manuel_Tartagni
         /// </summary>
         /// <param name="side">side of a enemy's  spawn</param>
         /// <returns>new Point2D for enemy's spawn</returns>
-        public Point2D getEnemySpawnPoint(int side)
+        public Point2D GetEnemySpawnPoint(int side)
         {
 
             RandomInt randomInt = new RandomInt();
@@ -136,6 +136,3 @@ namespace Manuel_Tartagni
     }
 
 }
-
-
-
