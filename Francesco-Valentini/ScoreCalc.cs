@@ -2,26 +2,18 @@ using System;
 
 namespace Francesco_Valentini
 {
-    /// <summary>
     /// Manages final score, that will be displayed both during gameplay and after gameover.
     /// Differs from ScoreManager, which manages GUI-related aspects of score displaying.
-    /// </summary>
     public class ScoreCalc
     {
-        /// <summary>
         /// Current player score.
-        /// </summary>
         public int Score { get; private set; }
 
-        /// <summary>
         /// Calculation status: true if score can be calculated, false otherwise.
-        /// </summary>
         public bool CalcStatus { get; set; }
 
-        /// <summary>
         /// Current multiplier value.
         /// Score increment will be multiplied by its value.
-        /// </summary>
         public int Multiplier { get; private set; }
 
         private double _multiplierTime;
@@ -33,25 +25,19 @@ namespace Francesco_Valentini
 
         private bool _hasMultiplier;
 
-        /// <summary>
         /// Creates class and sets multiplier to 1 by default.
-        /// </summary>
         public ScoreCalc()
         {
             this.Multiplier = 1;
             this.CalcStatus = false;
         }
 
-        /// <summary>
         /// Increments score by an arbitrary amount, while still abiding by multiplier rules.
-        /// </summary>
-        /// <param name="deltaScore"></param>
+        /// <param name="deltaScore">amount by which current score will be increased</param>
         public void IncScore(int deltaScore) => this.Score += deltaScore * this.Multiplier;
 
-        /// <summary>
         /// Manages multiplier time, decreasing it until it reaches 0.
-        /// </summary>
-        /// <param name="deltaTime"></param>
+        /// <param name="deltaTime">amount by which current score will be increased</param>
         private void ManageMultiplierTime(double deltaTime)
         {
             if (!this._hasMultiplier)
@@ -68,10 +54,8 @@ namespace Francesco_Valentini
             }
         }
 
-        /// <summary>
         /// Increments score by 1 every 4 frames, giving >= 15 points per second.
-        /// </summary>
-        /// <param name="deltaTime"></param>
+        /// <param name="deltaTime">amount by which current score will be increased</param>
         public void CalculateScore(double deltaTime)
         {
             if (this.CalcStatus)
@@ -86,10 +70,8 @@ namespace Francesco_Valentini
             }
         }
 
-        /// <summary>
         /// Sets multiplier to any value.
-        /// </summary>
-        /// <param name="multiplier"></param>
+        /// <param name="multiplier">amount by which current score increment should be multiplied</param>
         public void SetMultiplier(int multiplier)
         {
             this.Multiplier = multiplier;
@@ -97,15 +79,11 @@ namespace Francesco_Valentini
             this._hasMultiplier = true;
         }
 
-        /// <summary>
         /// Sets multiplier to default value (2x).
         /// Useful when you don't want to specify the value of the multiplier.
-        /// </summary>
         public void SetMultiplier() => this.SetMultiplier(s_MULTIPLIER_2X);
 
-        /// <summary>
         /// Resets multiplier back to 1.
-        /// </summary>
         public void ResetMultiplier()
         {
             this.Multiplier = 1;
@@ -113,15 +91,11 @@ namespace Francesco_Valentini
             this._hasMultiplier = false;
         }
 
-        /// <summary>
         /// Decreases multiplier time by an arbitrary amount.
-        /// </summary>
-        /// <param name="decrement"></param>
+        /// <param name="decrement">amount by which current multiplier remaining time should be decreased</param>
         private void DecMultiplierTime(double decrement) => this._multiplierTime -= decrement;
 
-        /// <summary>
         /// Resets frame counter.
-        /// </summary>
         private void ResetFrameCounter() => this._frameCounter -= s_SECONDS_PER_POINT;
     }
 }

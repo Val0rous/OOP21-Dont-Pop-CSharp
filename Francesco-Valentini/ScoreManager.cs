@@ -3,36 +3,26 @@ using System.Collections.Generic;
 
 namespace Francesco_Valentini
 {
-    /// <summary>
     /// ScoreManager calculates the current score.
     /// Edits table values.
-    /// </summary>
     public class ScoreManager
     {
-        /// <summary>
         /// Player score (at gameover).
-        /// </summary>
         public int Score { get; }
 
-        /// <summary>
         /// Current player's name.
-        /// </summary>
         public string PlayerName { get; }
 
-        /// <summary>
         /// Read only status: if true, leaderboard ranking will not be modified.
         /// If false, the ScoreManager is able to edit the leaderboard ranking.
-        /// </summary>
-        public bool ReadOnly { get; private set; }
+        public bool ReadOnly { get; }
 
         private readonly Leaderboard _leaderboard;
 
-        /// <summary>
         /// Creates & initializes this class.
-        /// </summary>
-        /// <param name="playerName"></param>
-        /// <param name="score"></param>
-        /// <param name="leaderboard"></param>
+        /// <param name="playerName">current player's name</param>
+        /// <param name="score">current player's score</param>
+        /// <param name="leaderboard">leaderboard manager (edit mode)</param>
         public ScoreManager(string playerName, int score, Leaderboard leaderboard)
         {
             this.Score = score;
@@ -42,26 +32,20 @@ namespace Francesco_Valentini
             this._leaderboard.AddToRanking(PlayerName, Score);
         }
 
-        /// <summary>
         /// This constructor is useful when all you want to do is to view current leaderboard, without editing it.
-        /// </summary>
-        /// <param name="leaderboard"></param>
+        /// <param name="leaderboard">leaderboard manager (readonly mode)</param>
         public ScoreManager(Leaderboard leaderboard)
         {
             this.ReadOnly = true;
             this._leaderboard = leaderboard;
         }
 
-        /// <summary>
         /// Gets a copy of the ranking list inside Leaderboard.
-        /// </summary>
-        /// <returns>current ranking</returns>
+        /// <returns>current ranking list</returns>
         public List<Pair<string, int>> GetRanking() => this._leaderboard.Ranking;
 
-        /// <summary>
         /// Gets current player's rank (at gameover).
-        /// </summary>
-        /// <returns>rank</returns>
+        /// <returns>current player rank</returns>
         public int GetRank() => this._leaderboard.GetRank(this.PlayerName, this.Score);
     }
 }
