@@ -30,13 +30,17 @@ namespace Manuel_Tartagni
         /// Gets a spawn point for power-ups.
         /// </summary>
         /// <returns>new Point2D</returns>
-        public Point2D getPowerUPSpawnPoint() => new Point2D(Math.random() * 0.6 + 0.2, Math.random() * 0.6 + 0.2);
+        public Point2D GetPowerUPSpawnPoint()
+        {
+            double n = new RandomInt().GetRandomInt(0, 100) / 100;
+            return new Point2D(n * 0.6 + 0.2, n * 0.6 + 0.2);
+        }
 
         /// <summary>
         /// Gets a spawn side for thornBalls.
         /// </summary>
         /// <returns>new Point2D</returns>
-        public int getThornballRandomSide() => 1 + new RandomInt().getRandomInt(0, 1) * 2;   //1 o 3
+        public int getThornballRandomSide() => 1 + (new RandomInt().GetRandomInt(0, 1) * 2);   //1 o 3
 
         /// <summary>
         /// Gets a spawn side for enemies and power-ups.
@@ -44,69 +48,68 @@ namespace Manuel_Tartagni
         /// <returns>new side for spawn</returns>
         public int getRandomSide()
         {
-             RandomInt randomInt = new RandomInt();
-             int side = randomInt.getRandomInt(1, 4);
+            RandomInt randomInt = new RandomInt();
+            int side = randomInt.GetRandomInt(1, 4);
             return side;
         }
 
- 
-    
-    /// <summary>
-    /// Gets a spawn Point2D for Thornballs.
-    /// </summary>
-     /// <param name="side">side of a thornball's  spawn</param>
-    /// <returns>new Point2D for thornbal's spawn</returns>
-    public Point2D getThornballSpawnPoint(int side)
-    {
- 
-        RandomInt randomInt = new RandomInt();
-        int sideOfSpawn = this.getThornballRandomSide();
-        double randomNumber = randomInt.getRandomInt(1, 100) / 100;
-        if (sideOfSpawn == SideOfSpawn.WEST.ordinal())
-        {
-            return new Point2D(-0.2, randomNumber);
-        }
-        else if (sideOfSpawn == SideOfSpawn.EAST.ordinal())
-        { 
-            return new Point2D(1.2, randomNumber);
-        }
-        return new Point2D(0.2, -0.2); //default spawn point
-    }
 
-    /// <summary>
-    /// Gets a spawn Point2D for enemies.
-    /// </summary>
-    /// <param name="side">side of a enemy's  spawn</param>
-    /// <returns>new Point2D for enemy's spawn</returns>
-    public Point2D getEnemySpawnPoint(int side)
-    {
 
-        RandomInt randomInt = new RandomInt();
+        /// <summary>
+        /// Gets a spawn Point2D for Thornballs.
+        /// </summary>
+        /// <param name="side">side of a thornball's  spawn</param>
+        /// <returns>new Point2D for thornbal's spawn</returns>
+        public Point2D getThornballSpawnPoint(int side)
+        {
 
-            // DOVREI USARE IL SideOfSpawn.WEST.ordinal() MA NELLA CONSEGNA NON L HO CAMBIATO. POSSO CAMBIARE LA CONSEGNA?
-            double randomNumber = (double)randomInt.getRandomInt(0, 100) / 100;
-        if (side == 1)
-        {
-            return new Point2D(-0.2, randomNumber);
+            RandomInt randomInt = new RandomInt();
+            int sideOfSpawn = this.getThornballRandomSide();
+            double randomNumber = randomInt.GetRandomInt(1, 100) / 100;
+            if (sideOfSpawn ==  (int) SideOfSpawn.WEST)
+            {
+                return new Point2D(-0.2, randomNumber);
+            }
+            else if (sideOfSpawn == (int)SideOfSpawn.EAST)
+            {
+                return new Point2D(1.2, randomNumber);
+            }
+            return new Point2D(0.2, -0.2); //default spawn point
         }
-        else if (side == 2)
 
+        /// <summary>
+        /// Gets a spawn Point2D for enemies.
+        /// </summary>
+        /// <param name="side">side of a enemy's  spawn</param>
+        /// <returns>new Point2D for enemy's spawn</returns>
+        public Point2D getEnemySpawnPoint(int side)
         {
-            return new Point2D(randomNumber, 1.2);
+
+            RandomInt randomInt = new RandomInt();
+
+            double randomNumber = (double)randomInt.GetRandomInt(0, 100) / 100;
+            if (side == 1)
+            {
+                return new Point2D(-0.2, randomNumber);
+            }
+            else if (side == 2)
+
+            {
+                return new Point2D(randomNumber, 1.2);
+            }
+            else if (side == 3)
+            {
+                return new Point2D(1.2, randomNumber);
+            }
+            else if (side == 4)
+            {
+                return new Point2D(randomNumber, -0.2);
+            }
+            else
+            {
+                return new Point2D(0.2, -0.2);
+            }
         }
-        else if (side == 3)
-        {
-            return new Point2D(1.2, randomNumber);
-        }
-        else if (side == 4)
-        {
-            return new Point2D(randomNumber, -0.2);
-        }
-        else
-        {
-            return new Point2D(0.2, -0.2); 
-        }
-    }
         /// <summary>
         /// Returns a hash code value for the object.
         /// </summary>
@@ -133,4 +136,6 @@ namespace Manuel_Tartagni
     }
 
 }
+
+
 
