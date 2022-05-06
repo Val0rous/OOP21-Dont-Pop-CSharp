@@ -23,12 +23,14 @@ namespace Francesco_Valentini
         [SetUp]
         public void InitList()
         {
-            this._list = new List<Pair<string, int>>();
-            this._list.Add(new Pair<string, int>("First", 90));
-            this._list.Add(new Pair<string, int>("Second", 75));
-            this._list.Add(new Pair<string, int>("Third", 60));
-            this._list.Add(new Pair<string, int>("Fourth", 45));
-            this._list.Add(new Pair<string, int>("Fifth", 30));
+            this._list = new List<Pair<string, int>>()
+            {
+                new Pair<string, int>("First", 90),
+                new Pair<string, int>("Second", 75),
+                new Pair<string, int>("Third", 60),
+                new Pair<string, int>("Fourth", 45),
+                new Pair<string, int>("Fifth", 30)
+            };
         }
 
         [Test]
@@ -47,8 +49,8 @@ namespace Francesco_Valentini
         public void TestPair()
         {
             var pair = new Pair<string, int>("Lol", 5);
-            Assert.AreEqual("Lol", pair.e1);
-            Assert.AreEqual(5, pair.e2);
+            Assert.AreEqual("Lol", pair.First);
+            Assert.AreEqual(5, pair.Second);
 
             var pair2 = new Pair<string, int>("Lol", 5);
             Assert.IsTrue(pair.Equals(pair2));

@@ -2,24 +2,24 @@ using System;
 
 namespace Francesco_Valentini
 {
-    /// A standard generic Pair<E1, E2> with getters, HashCode, Equals, and ToString well implemented.
-    /// <typeparam name="E1"></typeparam>
-    /// <typeparam name="E2"></typeparam>
-    public class Pair<E1, E2>
+    /// A standard generic Pair class with getters, HashCode, Equals, and ToString well implemented.
+    /// <typeparam name="T1"></typeparam>
+    /// <typeparam name="T2"></typeparam>
+    public class Pair<T1, T2>
     {
         /// First element of Pair.
-        public E1 e1 { get; }
+        public T1 First { get; }
 
         /// Second element of Pair.
-        public E2 e2 { get; }
+        public T2 Second { get; }
 
         /// Builds a pair of two elements.
-        /// <param name="e1">first element of pair</param>
-        /// <param name="e2">second element of pair</param>
-        public Pair(E1 e1, E2 e2)
+        /// <param name="first">first element of pair</param>
+        /// <param name="second">second element of pair</param>
+        public Pair(T1 first, T2 second)
         {
-            this.e1 = e1;
-            this.e2 = e2;
+            this.First = first;
+            this.Second = second;
         }
 
         /// Returns a hash code value for the object.
@@ -43,13 +43,13 @@ namespace Francesco_Valentini
             {
                 return false;
             }
-            var other = (Pair<E1, E2>) obj;
-            return Object.Equals(this.e1, other.e1)
-                    && Object.Equals(this.e2, other.e2);
+            var other = (Pair<T1, T2>) obj;
+            return Object.Equals(this.First, other.First)
+                    && Object.Equals(this.Second, other.Second);
         }
 
         /// Creates a string representation for this object.
         /// <returns>a string representation of this Pair</returns>
-        public override string ToString() => "Pair [e1=" + this.e1 + ", e2=" + this.e2 + "]";
+        public override string ToString() => "Pair [e1=" + this.First + ", e2=" + this.Second + "]";
     }
 }

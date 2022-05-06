@@ -33,7 +33,7 @@ namespace Francesco_Valentini
                 var index = 0;
                 while (index < this.Ranking.Count)
                 {
-                    if (score > this.Ranking[index].e2)
+                    if (score > this.Ranking[index].Second)
                     {
                         break;
                     }
@@ -56,8 +56,8 @@ namespace Francesco_Valentini
         {
             for (var i = 0; i < this.Ranking.Count; i++)
             {
-                if (this.Ranking[i].e1.Equals(playerName)
-                    && this.Ranking[i].e2.Equals(score))
+                if (this.Ranking[i].First.Equals(playerName)
+                    && this.Ranking[i].Second.Equals(score))
                 {
                     return i + 1;
                 }
