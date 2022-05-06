@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Francesco-Valentini", "Fran
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mario-Biavati", "Mario-Biavati\Mario-Biavati.csproj", "{596CFFC2-FED0-4977-9FB5-FFA7F28E4733}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manuel-Tartagni", "Manuel-Tartagni\Manuel-Tartagni.csproj", "{37A9507A-D903-4918-A16D-32B54CB653E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manuel-Tartagni", "Manuel-Tartagni\Manuel-Tartagni.csproj", "{C9DA7549-152A-4A29-9192-FA43B91093FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{596CFFC2-FED0-4977-9FB5-FFA7F28E4733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{596CFFC2-FED0-4977-9FB5-FFA7F28E4733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{596CFFC2-FED0-4977-9FB5-FFA7F28E4733}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37A9507A-D903-4918-A16D-32B54CB653E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37A9507A-D903-4918-A16D-32B54CB653E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37A9507A-D903-4918-A16D-32B54CB653E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37A9507A-D903-4918-A16D-32B54CB653E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9DA7549-152A-4A29-9192-FA43B91093FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DA7549-152A-4A29-9192-FA43B91093FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DA7549-152A-4A29-9192-FA43B91093FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DA7549-152A-4A29-9192-FA43B91093FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
