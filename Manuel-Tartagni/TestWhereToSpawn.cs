@@ -79,9 +79,9 @@ namespace Manuel_Tartagni
         public void TestThornballSpawnPoint()
         {
             Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(1) != this.Point2d);
-            Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(2) != this.Point2d);
+            Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(2) == this.Point2d);
             Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(3) != this.Point2d);
-            Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(4) != this.Point2d);
+            Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(4) == this.Point2d);
             Assert.AreEqual(this.wheretospawn.GetThornballSpawnPoint(5), this.Point2d);
         }
 
