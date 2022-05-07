@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 
-namespace Manuel_Tartagni
+namespace ManuelTartagni
 {
     [TestFixture]
     public class TestWhereToSpawn
