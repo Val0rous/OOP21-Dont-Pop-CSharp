@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace Manuel_Tartagni
+namespace ManuelTartagni
 {
 
     /// <summary>
