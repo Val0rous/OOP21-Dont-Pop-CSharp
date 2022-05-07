@@ -64,13 +64,13 @@ namespace Manuel_Tartagni
         {
 
             RandomInt randomInt = new RandomInt();
-            int sideOfSpawn = this.GetThornballRandomSide();
+            int sideOfSpawn =side;
             double randomNumber = randomInt.GetRandomInt(1, 100) / 100;
             if (sideOfSpawn ==  (int) SideOfSpawn.WEST)
             {
                 return new Point2D(-0.2, randomNumber);
             }
-            else if (sideOfSpawn == (int)SideOfSpawn.EAST)
+            else if (sideOfSpawn == (int)SideOfSpawn.SOUTH)
             {
                 return new Point2D(1.2, randomNumber);
             }
