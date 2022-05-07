@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Michele-Ravaioli
+namespace MicheleRavaioli
 {
     /**
      * Represents a point or vector in a 2-dimensional space
