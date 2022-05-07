@@ -10,7 +10,7 @@ namespace Manuel_Tartagni
         public WhereToSpawn wheretospawn;
         public Point2D point2d;
 
-        public Point2D Point2d { get => point2d; set => point2d = value; }
+        public Point2D Point2d;
 
         [SetUp]
         public void Init()
@@ -23,15 +23,24 @@ namespace Manuel_Tartagni
 
         [Test]
         public void TestRandomInt()
-        {
+        {   //1,1
             this.randomInt.GetRandomInt(1, 1);
             Assert.AreEqual(this.randomInt, 1);
 
+            bool check;
+           //1,4
             this.randomInt.GetRandomInt(1, 4);
-            Boolean check;
             int number = randomInt.RandomInt2;
             check = number <= 4 || number >= 1 ? true : false;
             Assert.IsTrue(check);
+            //3-4
+            this.randomInt.GetRandomInt(3, 4);
+             number = randomInt.RandomInt2;
+            check = number <= 4 || number >= 3 ? true : false;
+            Assert.IsTrue(check);
+            //4,4
+            this.randomInt.GetRandomInt(4, 4);
+            Assert.AreEqual(this.randomInt, 4);
         }
        
         [Test]
@@ -69,8 +78,6 @@ namespace Manuel_Tartagni
         [Test]
         public void TestThornballSpawnPoint()
         {
-            //passare side a getThornballSpawnPoint
-
             Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(1) != this.Point2d);
             Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(2) != this.Point2d);
             Assert.IsTrue(this.wheretospawn.GetThornballSpawnPoint(3) != this.Point2d);
@@ -82,8 +89,6 @@ namespace Manuel_Tartagni
         [Test]
         public void TestEnemySpawnPoint()
         {
-            //passare side a getThornballSpawnPoinT
-
             Assert.IsTrue(this.wheretospawn.GetEnemySpawnPoint(1) != this.Point2d);
             Assert.IsTrue(this.wheretospawn.GetEnemySpawnPoint(2) != this.Point2d);
             Assert.IsTrue(this.wheretospawn.GetEnemySpawnPoint(3) != this.Point2d);
