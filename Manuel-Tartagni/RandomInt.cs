@@ -1,6 +1,6 @@
 using System;
 
-namespace Manuel_Tartagni
+namespace ManuelTartagni
 {
 
     public class RandomInt
