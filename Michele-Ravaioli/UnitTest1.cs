@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Michele_Ravaioli
+namespace Michele-Ravaioli
 {
     public class UnitTest1
     {
