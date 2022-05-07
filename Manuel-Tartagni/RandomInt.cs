@@ -9,21 +9,17 @@ namespace Manuel_Tartagni
 
 
         /// <summary>
-        /// Metodo per generare un intero casuale compreso tra <paramref name="min"/> e <paramref name="max"/>
+        /// Generate a random integer number <paramref name="min"/> and <paramref name="max"/>
         /// </summary>
-        /// <param name="min">primo operando</param>
-        /// <param name="max">secondo operando</param>
-        /// <returns>In risultato dell'operazione</returns>
-        /// 
+        /// <param name="min">first parameter</param>
+        /// <param name="max">second parameter </param>
+        /// <returns>Return a integer , random generated, number</returns>
+
         public int GetRandomInt(int min, int max)
         {
-            var mathRandom = new Random().Next(int.MinValue, int.MaxValue);
-            float randomN = mathRandom * (max - min);
-            this.RandomInt2 = (int)Math.Round(randomN) + min;
+            this.RandomInt2 = new Random().Next(min, max);
             return this.RandomInt2;
         }
-
-
 
         /// <summary>
         /// Checks if two pairs are equal to one another.
