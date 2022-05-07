@@ -103,7 +103,11 @@ namespace Manuel_Tartagni
             }
             else if (side == 4)
             {
-                return new Point2D(randomNumber, -0.2);
+                if (randomNumber == 0.2)
+                {
+                    randomNumber = 0.3;
+                }
+                    return new Point2D(randomNumber, -0.2);
             }
             else
             {
