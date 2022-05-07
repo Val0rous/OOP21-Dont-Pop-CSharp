@@ -17,7 +17,7 @@ namespace Manuel_Tartagni
         {
 
             /** The west. */
-            WEST,
+            WEST=1,
             /** The east. */
             EAST,
             /** The south. */
