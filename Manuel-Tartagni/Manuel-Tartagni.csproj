@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Michele-Ravaioli\Michele-Ravaioli.csproj" />
+  </ItemGroup>
+
 </Project>
