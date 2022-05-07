@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Manuel_Tartagni
+namespace ManuelTartagni
 {
     /**
      * Represents a point or vector in a 2-dimensional space
