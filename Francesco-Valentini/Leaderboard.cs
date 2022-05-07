@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Francesco_Valentini
+namespace FrancescoValentini
 {
     /// Class used to store the scores of the best players.
     /// First, logs leaderboard length, then adds elements.

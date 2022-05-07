@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Francesco_Valentini
+namespace FrancescoValentini
 {
     /// ScoreManager calculates the current score.
     /// Edits table values.

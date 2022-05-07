@@ -1,4 +1,4 @@
-namespace Francesco_Valentini
+namespace FrancescoValentini
 {
     /// Useful class to keep all infos about a rank entry in the ScoreScene table.
     public class RankItem

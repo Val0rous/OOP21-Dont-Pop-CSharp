@@ -1,6 +1,6 @@
 using System;
 
-namespace Francesco_Valentini
+namespace FrancescoValentini
 {
     /// A standard generic Pair class with getters, HashCode, Equals, and ToString well implemented.
     /// <typeparam name="T1"></typeparam>

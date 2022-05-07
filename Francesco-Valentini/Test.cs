@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Francesco_Valentini
+namespace FrancescoValentini
 {
     [TestFixture]
     public class Test

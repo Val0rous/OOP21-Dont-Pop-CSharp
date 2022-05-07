@@ -1,4 +1,4 @@
-namespace Francesco_Valentini
+namespace FrancescoValentini
 {
     /// Manages final score, that will be displayed both during gameplay and after game over.
     /// Differs from ScoreManager, which manages GUI-related aspects of score displaying.
