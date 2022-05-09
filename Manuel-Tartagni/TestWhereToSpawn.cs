@@ -7,9 +7,9 @@ namespace ManuelTartagni
     [TestFixture]
     public class TestWhereToSpawn
     {
-        public RandomInt randomInt;
-        public WhereToSpawn wheretospawn;
-        public Point2D point2d;
+        private RandomInt randomInt;
+        private WhereToSpawn wheretospawn;
+        private Point2D point2d;
 
         public Point2D Point2d;
 
