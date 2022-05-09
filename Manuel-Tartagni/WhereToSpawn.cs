@@ -76,7 +76,7 @@ namespace ManuelTartagni
             {
                 return new Point2D(1.2, randomNumber);
             }
-            return new Point2D(0.2, -0.2); //default spawn point
+            return new Point2D(0.2, -0.2); 
         }
 
         /// <summary>
@@ -90,20 +90,20 @@ namespace ManuelTartagni
             RandomInt randomInt = new RandomInt();
 
             double randomNumber = (double)randomInt.GetRandomInt(0, 100) / 100;
-            if (side == 1)
+            if (side ==(int)SideOfSpawn.WEST)
             {
                 return new Point2D(-0.2, randomNumber);
             }
-            else if (side == 2)
+            else if (side ==(int)SideOfSpawn.EAST)
 
             {
                 return new Point2D(randomNumber, 1.2);
             }
-            else if (side == 3)
+            else if (side == (int)SideOfSpawn.SOUTH)
             {
                 return new Point2D(1.2, randomNumber);
             }
-            else if (side == 4)
+            else if (side == (int)SideOfSpawn.NORTH)
             {
                 if (randomNumber == 0.2)
                 {
@@ -136,7 +136,7 @@ namespace ManuelTartagni
         /// <summary>
         /// Checks if two pairs are equal to one another.
         /// </summary>
-        /// <param name="num"></param>
+        /// <param name="obj"></param>
         /// <returns>true if two objects are equals </returns>
         public override bool Equals(object obj) => base.Equals(obj);
     }
